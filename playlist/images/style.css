@@ -5,8 +5,8 @@ input#id_query {
     padding-left: 3px;
 }
 a.boxed, #id_query { background:#B1D07C url('thintop1.png') repeat-x; color:#F9F00D; } /* BUTTON BG */
-a.boxed:hover { 
-  background-color:#E0F290; 
+a.boxed:hover {
+  background-color:#E0F290;
   text-decoration: none;} /* BUTTON HOVER */
 #bottomcont { background:#A1D29D url('thintop1.png') repeat-x; } /* BOTTOM BAR BG */
 #leftmenu { background:#A1D29D url('g2log3.png') no-repeat center bottom; } /* MENU BG */
@@ -64,12 +64,12 @@ body {
   height:100px;
 }
 
-#id_query { 
-  background-color:#FFF; 
+#id_query {
+  background-color:#FFF;
 }
 
-#id_query:hover { 
-  width:120px; 
+#id_query:hover {
+  width:120px;
 }
 
 
@@ -212,7 +212,7 @@ td a:hover {
 }
 td.votes, td.score {
   width:50px;
-  white-space:nowrap; 
+  white-space:nowrap;
   text-align:center;
 }
 td.emoticon {
@@ -299,6 +299,11 @@ div#progbarbox {
   font-size:11px;
   display:block;
 }
+div#carplayprogbarbox {
+  margin:4px 5px 0px 5px;
+  font-size:40px;
+  display:block;
+}
 div#progtube {
   width:325px;
   border:1px solid black;
@@ -306,8 +311,18 @@ div#progtube {
   height:6px;
   margin-bottom:2px;
 }
+div#carplayprogtube {
+  width:99%;
+  border:1px solid black;
+  background-color:#FFF;
+  height:35px;
+  margin-bottom:2px;
+}
 div#progbar {
   height:6px;
+}
+div#carplayprogbar {
+  height:35px;
 }
 div#votebuttonslow {
   display:block;
@@ -330,6 +345,29 @@ div#votebuttonslow a {
   color:#000;
   text-align:center;
   font-size:12px;
+}
+div#carplayvotebuttonslow {
+  /* display:block;
+  width:600px; */
+  font-size:30px;
+  margin:5px 5px 2px 5px;
+  text-align: center;
+  /* position:fixed;
+  bottom:4px; */
+}
+div#carplayvotebuttonslow a {
+  text-decoration:none;
+  border:1px solid black;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+  display:inline-block;
+  width:45px;
+  height:45px;
+  background-color:#FFF;
+  color:#000;
+  text-align:center;
+  font-size:30px;
 }
 #commentbox {
   background-color:#FFF;
@@ -392,6 +430,35 @@ div#votebuttonslow a {
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
 }
+
+#carplay a {
+  text-decoration:none;
+  color:#000;
+}
+#carplay a:hover {
+  text-decoration:underline;
+}
+#carplay {
+  /* position:fixed;
+  right:50%;
+  bottom:90%;
+  width:60%;
+  height:400px;
+  vertical-align:top; */
+  border:1px inset #666;
+  border-radius:3px;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
+}
+
+#carplaymetadata {
+  margin-top:4px;
+  font-family:verdana;
+  font-size:40px;
+  margin-left:5px;
+}
+
+
 #expandbutt {
   float:right;
   width:7px;
@@ -624,7 +691,7 @@ td.emoted { }
 }
 
 #djangoForumThreadPosts a {
-  color:#00F;text-decoration:underline; 
+  color:#00F;text-decoration:underline;
 }
 
 #djangoForumBreadcrumbs {

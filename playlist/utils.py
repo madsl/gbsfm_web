@@ -27,7 +27,9 @@ def getSong(song):
   return song.getPath()
 
 def restart_stream():
-  Popen(["curl", "-k", "-X", "POST", "-F", "token=ea11a2a357d69e0bec99b99e22969c", "-F", "ref=master", "https://gitlab.hemma.lokal/api/v4/projects/48/trigger/pipeline"], \
+  authstring = "Authorization: Bearer " + settings.DRONE_CI
+  print(authstring)
+  Popen(["curl", "-ik", "-X", "POST", "https://drone.hemma.lokal/api/repos/scuttle/gbsfm_streamrestart/builds", "-H", authstring], \
   stdin=None, stdout=None, stderr=None, close_fds=True)
 
 def start_stream():
@@ -53,7 +55,9 @@ def start_ftp():
   os.chdir(olddir)
 
 def restart_ftp():
-  Popen(["curl", "-k", "-X", "POST", "-F", "token=5525978610db3c2b32302af0105e11", "-F", "ref=master", "https://gitlab.hemma.lokal/api/v4/projects/49/trigger/pipeline"], \
+  authstring = "Authorization: Bearer " + settings.DRONE_CI
+  print(authstring)
+  Popen(["curl", "-ik", "-X", "POST", "https://drone.hemma.lokal/api/repos/scuttle/gbsfm_ftprestart/builds", "-H", authstring], \
   stdin=None, stdout=None, stderr=None, close_fds=True)
 
 def start_stream2():
@@ -76,6 +80,10 @@ def start_metadataupdater():
   Popen(["killall", "-r", "metadataupdater.sh"], \
   stdin=None, stdout=None, stderr=None, close_fds=True)
   Popen(["nohup", "/home/gbsfm/metadataupdater.sh", ">/dev/null", "2>&1&"], \
+  stdin=None, stdout=None, stderr=None, close_fds=True)
+
+def stop_metadataupdater():
+  Popen(["killall", "-r", "metadataupdater.sh"], \
   stdin=None, stdout=None, stderr=None, close_fds=True)
 
 def start_listeners():
@@ -111,13 +119,13 @@ def stop_stream3():
   Popen(["killall", "-KILL", "sc_serv"]).wait()
 
 def restart_linkbot():
-  Popen(["/home/gbsfm/restartstuff.sh", "botstack_socks-linkbot", "gitlab.hemma.lokal:5005/scuttle/socks-linkbot:latest"])
+  Popen(["/home/gbsfm/restartstuff.sh", "gbsfm_gbsfm_linkbot", "hub.hemma.lokal/images/gbsfm_linkbot:latest"])
 
 def restart_socks():
-  Popen(["/home/gbsfm/restartstuff.sh", "botstack_socks-docker", "gitlab.hemma.lokal:5005/scuttle/socks-docker:latest"])
+  Popen(["/home/gbsfm/restartstuff.sh", "gbsfm_socks-docker", "hub.hemma.lokal/images/gbsfm-ircbot:latest"])
 
 def restart_shoes():
-  Popen(["/home/gbsfm/restartstuff.sh", "botstack_shoes-docker", "gitlab.hemma.lokal:5005/scuttle/shoes-docker:latest"])
+  Popen(["/home/gbsfm/restartstuff.sh", "gbsfm_shoes-docker", "hub.hemma.lokal/images/gbsfm_discordbot:latest"])
 
 def getObj(table, name, oldid=None):
   #get album/artist object if it exists; otherwise create it

@@ -140,11 +140,11 @@ $(document).ready(function(){
     <table class="playlist" id="playlisttable">
     <tbody id='playlist'>
       {% if user.userprofile.tokens %}
-        <tr><th colspan="8" class="plinfo">
+        <tr><th colspan="9" class="plinfo">
           You have {{user.userprofile.tokens}} token{{user.userprofile.tokens|pluralize}}, so you can add extra dongs to the playlist!
         </th></tr>
       {% endif %}
-      <tr><th colspan="8" id="length">{% include "pl_length.html" %}</th></tr>
+      <tr><th colspan="9" id="length">{% include "pl_length.html" %}</th></tr>
       <tr id='columns'>
         <th>Artist</th>
         <th>Title</th>
@@ -153,7 +153,8 @@ $(document).ready(function(){
         <th>Vote</th>
         <th>Score</th>
         <th>Farts</th>
-        <th>Actions</th>
+        <th>Fav</th>
+        <th>Skip/Del.</th>
       </tr>
       {% include "playlist_table.html" %}
     </tbody>

@@ -83,6 +83,11 @@ def start_metadataupdater(request):
   return HttpResponseRedirect(reverse('g2admin'))
 
 @permission_required('playlist.start_stream')
+def stop_metadataupdater(request):
+  utils.stop_metadataupdater()
+  return HttpResponseRedirect(reverse('g2admin'))
+
+@permission_required('playlist.start_stream')
 def start_listeners(request):
   utils.start_listeners()
   return HttpResponseRedirect(reverse('g2admin'))
@@ -188,6 +193,9 @@ def playlist(request, lastid=None):
     return HttpResponseRedirect("/images/moved.html")
   return jsplaylist(request, lastid)
 
+@permission_required('playlist.view_playlist')
+def carplay(request, lastid=None):
+  return render(request, 'carplay.html')
 
 def jsplaylist(request, lastid=None):
 
